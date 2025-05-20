@@ -1,1 +1,198 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+section {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+section h2 {
+    color: #333;
+    margin-top: 0;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Formularios */
+form div {
+    margin-bottom: 15px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="date"],
+form textarea,
+form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Asegura que padding no afecte el ancho total */
+}
+
+form textarea {
+    resize: vertical;
+}
+
+form button[type="submit"],
+form button[type="button"],
+.filtros-container button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+form button[type="submit"]:hover,
+form button[type="button"]:hover,
+.filtros-container button:hover {
+    background-color: #0056b3;
+}
+
+/* Filtros */
+.filtros-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    align-items: end;
+}
+
+.filtros-container div {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Tabla de Incidentes */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #e9e9e9;
+}
+
+.incidente-urgente {
+    background-color: #ffebee !important; /* Rojo claro para alertas */
+    font-weight: bold;
+}
+
+.incidente-urgente td:first-child::before {
+    content: "⚠️ "; /* Icono de alerta */
+    color: #d32f2f;
+}
+
+table select {
+    padding: 5px;
+    margin-right: 5px;
+}
+
+/* Estadísticas */
+.grafico-placeholder {
+    border: 1px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.bar-chart-example {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    width: 80%;
+    max-width: 300px;
+    height: 150px;
+    border-left: 2px solid #333;
+    border-bottom: 2px solid #333;
+    margin-top: 20px;
+    padding: 0 10px;
+}
+
+.bar {
+    width: 25%;
+    background-color: #007bff;
+    margin: 0 5%;
+    transition: height 0.3s ease-out;
+}
+.bar:hover {
+    opacity: 0.8;
+}
+
+.legend {
+    margin-top: 15px;
+}
+
+.legend-item {
+    margin-right: 15px;
+    font-size: 0.9em;
+}
+.legend-item.nuevo::before { content: "■ "; color: #ffc107; }
+.legend-item.en-proceso::before { content: "■ "; color: #007bff; }
+.legend-item.resuelto::before { content: "■ "; color: #28a745; }
+
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    margin-top: 30px;
+}

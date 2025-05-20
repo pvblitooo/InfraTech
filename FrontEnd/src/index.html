@@ -1,13 +1,194 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-  <meta charset="utf-8">
-  <title>FrontEnd</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Gestión de Incidentes - InfraTech S.A.</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <app-root></app-root>
+    <header>
+        <h1>Portal de Gestión de Incidentes - InfraTech S.A.</h1>
+    </header>
+
+    <main>
+        <section id="registrar-incidente">
+            <h2>Registrar Nuevo Incidente</h2>
+            <form id="form-nuevo-incidente">
+                <div>
+                    <label for="tipo">Tipo:</label>
+                    <select id="tipo" name="tipo">
+                        <option value="hardware">Hardware</option>
+                        <option value="software">Software</option>
+                        <option value="red">Red</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="area">Área:</label>
+                    <select id="area" name="area">
+                        <option value="soporte-tecnico">Soporte Técnico</option>
+                        <option value="desarrollo">Desarrollo</option>
+                        <option value="infraestructura">Infraestructura</option>
+                        <option value="rrhh">RRHH</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="descripcion">Descripción:</label>
+                    <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
+                </div>
+                <div>
+                    <label for="prioridad-registro">Prioridad:</label>
+                    <select id="prioridad-registro" name="prioridad-registro">
+                        <option value="baja">Baja</option>
+                        <option value="media">Media</option>
+                        <option value="alta">Alta</option>
+                    </select>
+                </div>
+                <button type="submit">Registrar Incidente</button>
+            </form>
+        </section>
+
+        <section id="filtros-incidentes">
+            <h2>Filtros</h2>
+            <div class="filtros-container">
+                <div>
+                    <label for="filtro-tipo">Tipo:</label>
+                    <select id="filtro-tipo" name="filtro-tipo">
+                        <option value="">Todos</option>
+                        <option value="hardware">Hardware</option>
+                        <option value="software">Software</option>
+                        <option value="red">Red</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="filtro-estado">Estado:</label>
+                    <select id="filtro-estado" name="filtro-estado">
+                        <option value="">Todos</option>
+                        <option value="nuevo">Nuevo</option>
+                        <option value="en-proceso">En Proceso</option>
+                        <option value="resuelto">Resuelto</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="filtro-prioridad">Prioridad:</label>
+                    <select id="filtro-prioridad" name="filtro-prioridad">
+                        <option value="">Todas</option>
+                        <option value="baja">Baja</option>
+                        <option value="media">Media</option>
+                        <option value="alta">Alta</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="filtro-fecha">Fecha Desde:</label>
+                    <input type="date" id="filtro-fecha" name="filtro-fecha">
+                </div>
+                <button type="button">Aplicar Filtros</button>
+            </div>
+        </section>
+
+        <section id="lista-incidentes">
+            <h2>Lista de Incidentes</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tipo</th>
+                        <th>Área</th>
+                        <th>Descripción</th>
+                        <th>Estado</th>
+                        <th>Prioridad</th>
+                        <th>Fecha Creación</th>
+                        <th>Responsable</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="incidente-urgente">
+                        <td>INC-001</td>
+                        <td>Hardware</td>
+                        <td>Soporte Técnico</td>
+                        <td>PC no enciende en oficina A-101</td>
+                        <td>Nuevo</td>
+                        <td>Alta</td>
+                        <td>2025-05-17 09:30</td>
+                        <td>(Sin asignar)</td>
+                        <td>
+                            <select title="Asignar Técnico">
+                                <option value="">Asignar...</option>
+                                <option value="tec1">Técnico 1</option>
+                                <option value="tec2">Técnico 2</option>
+                            </select>
+                            <select title="Cambiar Estado">
+                                <option value="nuevo" selected>Nuevo</option>
+                                <option value="en-proceso">En Proceso</option>
+                                <option value="resuelto">Resuelto</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>INC-002</td>
+                        <td>Software</td>
+                        <td>Desarrollo</td>
+                        <td>Error al iniciar sesión en App Interna</td>
+                        <td>En Proceso</td>
+                        <td>Media</td>
+                        <td>2025-05-18 11:00</td>
+                        <td>Técnico 1</td>
+                        <td>
+                            <select title="Asignar Técnico">
+                                <option value="tec1" selected>Técnico 1</option>
+                                <option value="tec2">Técnico 2</option>
+                            </select>
+                             <select title="Cambiar Estado">
+                                <option value="nuevo">Nuevo</option>
+                                <option value="en-proceso" selected>En Proceso</option>
+                                <option value="resuelto">Resuelto</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>INC-003</td>
+                        <td>Red</td>
+                        <td>Infraestructura</td>
+                        <td>Sin acceso a internet en piso 3</td>
+                        <td>Resuelto</td>
+                        <td>Alta</td>
+                        <td>2025-05-16 15:00</td>
+                        <td>Técnico 2</td>
+                        <td>
+                            <select title="Asignar Técnico" disabled>
+                                <option value="tec2" selected>Técnico 2</option>
+                            </select>
+                             <select title="Cambiar Estado" disabled>
+                                <option value="resuelto" selected>Resuelto</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="estadisticas">
+            <h2>Estadísticas Visuales</h2>
+            <div class="grafico-placeholder">
+                <p>(Aquí iría un gráfico de incidentes por estado)</p>
+                <div class="bar-chart-example">
+                    <div class="bar" style="height: 60%; background-color: #ffc107;" title="Nuevos: 6"></div>
+                    <div class="bar" style="height: 80%; background-color: #007bff;" title="En Proceso: 8"></div>
+                    <div class="bar" style="height: 40%; background-color: #28a745;" title="Resueltos: 4"></div>
+                </div>
+                <div class="legend">
+                    <span class="legend-item nuevo">Nuevos</span>
+                    <span class="legend-item en-proceso">En Proceso</span>
+                    <span class="legend-item resuelto">Resueltos</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 InfraTech S.A. - Portal de Gestión de Incidentes</p>
+    </footer>
 </body>
 </html>
